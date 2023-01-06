@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ScoreFragment">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+       <TextView
+           android:id="@+id/scoreTitle"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="20dp"
+           android:fontFamily="@font/centra_bold"
+           android:text="SCORE"
+           android:textColor="?attr/counterTextColor"
+           android:textSize="30dp"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toTopOf="parent" />
+
+       <com.github.mikephil.charting.charts.PieChart
+           android:layout_width="200dp"
+           android:id="@+id/pieChart"
+           android:layout_height="200dp"
+           android:layout_marginHorizontal="20dp"
+           android:layout_marginTop="20dp"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/scoreTitle" />
+
+       <androidx.constraintlayout.widget.ConstraintLayout
+           android:id="@+id/pieLegend"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginHorizontal="20dp"
+           android:layout_marginTop="90dp"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toEndOf="@+id/pieChart"
+           app:layout_constraintTop_toBottomOf="@+id/scoreTitle">
+
+           <androidx.cardview.widget.CardView
+               android:id="@+id/purplePie"
+               android:layout_width="20dp"
+               android:layout_height="20dp"
+               android:backgroundTint="@color/homecard_purple"
+               app:cardCornerRadius="50dp"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toTopOf="parent" />
+
+           <androidx.cardview.widget.CardView
+               android:id="@+id/greenPie"
+               android:layout_width="20dp"
+               android:layout_height="20dp"
+               android:layout_marginTop="10dp"
+               android:backgroundTint="@color/homecard_green"
+               app:cardCornerRadius="50dp"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toBottomOf="@id/purplePie" />
+
+           <TextView
+               android:id="@+id/player1Text"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginHorizontal="20dp"
+               android:fontFamily="@font/centra_semibold"
+               android:text="Player1"
+               android:textColor="?attr/counterTextColor"
+               android:textSize="18dp"
+               app:layout_constraintStart_toEndOf="@id/purplePie"
+               app:layout_constraintTop_toTopOf="parent" />
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginHorizontal="20dp"
+               android:layout_marginTop="10dp"
+               android:fontFamily="@font/centra_semibold"
+               android:text="Player2"
+               android:textColor="?attr/counterTextColor"
+               android:textSize="18dp"
+               app:layout_constraintStart_toEndOf="@id/greenPie"
+               app:layout_constraintTop_toBottomOf="@id/player1Text" />
+
+       </androidx.constraintlayout.widget.ConstraintLayout>
+
+       <LinearLayout
+           android:id="@+id/linearLayout"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginHorizontal="20dp"
+           android:layout_marginTop="20dp"
+           android:orientation="horizontal"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/pieChart">
+
+           <TextView
+               android:id="@+id/wins"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_weight="1"
+               android:fontFamily="@font/centra_bold"
+               android:text="200\nWins"
+               android:textAlignment="center"
+               android:textColor="?attr/counterTextColor"
+               android:textSize="30dp" />
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_weight="1"
+               android:id="@+id/loses"
+               android:fontFamily="@font/centra_bold"
+               android:text="43\nLoses"
+               android:textAlignment="center"
+               android:textColor="?attr/counterTextColor"
+               android:textSize="30dp" />
+       </LinearLayout>
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:fontFamily="@font/centra_bold"
+           android:text="Online Matches History"
+           android:textColor="?attr/counterTextColor"
+           android:textSize="25dp"
+           android:id="@+id/onlineMatchesTitle"
+           android:layout_marginTop="30dp"
+           android:layout_marginHorizontal="20dp"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+       <androidx.constraintlayout.widget.ConstraintLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:id="@+id/onlineLayout"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/onlineMatchesTitle" >
+       <androidx.recyclerview.widget.RecyclerView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginHorizontal="20dp"
+           android:layout_marginTop="20dp"
+           android:id="@+id/onlineRecyclerView"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toTopOf="parent"/>
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:fontFamily="@font/centra_semibold"
+               android:text="No online matches yet"
+               android:id="@+id/noMatchesOnline"
+               android:visibility="gone"
+               android:paddingBottom="30dp"
+               android:textColor="@color/homecard_red"
+               android:textSize="20dp"
+               android:layout_marginHorizontal="20dp"
+               android:layout_marginTop="20dp"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toTopOf="parent" />
+       </androidx.constraintlayout.widget.ConstraintLayout>
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:fontFamily="@font/centra_bold"
+           android:text="Offline Matches History"
+           android:textColor="?attr/counterTextColor"
+           android:textSize="25dp"
+           android:id="@+id/offlineMatchesTitle"
+           android:layout_marginTop="20dp"
+           android:layout_marginHorizontal="20dp"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/onlineLayout" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/offlineMatchesTitle">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/centra_semibold"
+                android:text="No offline matches yet"
+                android:id="@+id/noMatchesOffline"
+                android:visibility="gone"
+                android:paddingBottom="30dp"
+                android:textColor="@color/homecard_red"
+                android:textSize="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/localRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:paddingBottom="100dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+   </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</FrameLayout>

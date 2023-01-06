@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:backgroundTint="?attr/colorPrimary"
+        app:cardCornerRadius="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/moveListVictoryTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:fontFamily="@font/centra_bold"
+                android:text="Player 1's Victory"
+                android:textColor="?attr/counterTextColor"
+                android:textSize="25dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+
+                app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/moveListVictoryType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+
+                android:fontFamily="@font/centra_semibold"
+                android:text="CLASSIC Match"
+                android:textColor="?attr/counterTextColor"
+                android:textSize="25dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/moveListVictoryTitle" />
+            <ScrollView
+                android:layout_width="match_parent"
+                android:scrollbarSize="0dp"
+                android:id="@+id/moveListScrollview"
+                android:layout_height="100dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/moveListVictoryType" >
+            <TextView
+                android:id="@+id/moveList"
+                android:layout_width="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:lineSpacingExtra="10dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/centra_semibold"
+                android:text="White Pawn to K2\nWhite"
+                android:textAlignment="center"
+                android:textSize="16dp"
+                android:layout_marginTop="10dp"
+                android:textColor="?attr/counterTextColor"/>
+            </ScrollView>
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="10dp"
+                android:background="?attr/colorPrimary"
+                app:layout_constraintTop_toBottomOf="@+id/moveListScrollview"
+                android:text="Close"
+                android:id="@+id/closeMoveList"
+                android:textColor="@color/homecard_purple"
+                android:fontFamily="@font/centra_bold"
+                android:textSize="14dp"/>
+/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
